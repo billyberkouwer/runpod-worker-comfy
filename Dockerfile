@@ -59,6 +59,30 @@ RUN if [ "$MODEL_TYPE" = "sdxl" ]; then \
       wget --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/checkpoints/sd3_medium_incl_clips_t5xxlfp8.safetensors https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp8.safetensors; \
     fi
 
+RUN wget -O models/checkpoints/sd_turbo.safetensors https://huggingface.co/stabilityai/sdturbo/resolve/main/sd_turbo.safetensors;
+RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom-nodes/ComfyUI-Manager;
+RUN git clone https://github.com/ltdrdata/ComfyUI-Impact-Pack.git custom-nodes/ComfyUI-Impact-Pack;
+RUN git clone https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes.git custom-nodes/Derfuu_ComfyUI_ModdedNodes;
+RUN git clone https://github.com/WASasquatch/was-node-suite-comfyui.git custom-nodes/was-node-suite-comfyui;
+RUN git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git custom-nodes/ComfyUI-Custom-Scripts;
+RUN git clone https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git custom-nodes/ComfyUI_Comfyroll_CustomNodes;
+RUN git clone https://github.com/FizzleDorf/ComfyUI_FizzNodes.git custom-nodes/ComfyUI_FizzNodes;
+RUN git clone https://github.com/jamesWalker55/comfyui-various.git custom-nodes/comfyui-various;
+RUN git clone https://github.com/cubiq/ComfyUI_essentials.git custom-nodes/ComfyUI_essentials;
+RUN git clone https://github.com/shadowcz007/comfyui-mixlab-nodes.git custom-nodes/comfyui-mixlab-nodes;
+RUN git clone https://github.com/Amorano/Jovimetrix.git custom-nodes/Jovimetrix;
+RUN git clone https://github.com/gokayfem/ComfyUI_VLM_nodes.git custom-nodes/ComfyUI_VLM_nodes;
+RUN git clone https://github.com/kadirnar/ComfyUI-YOLO.git custom-nodes/ComfyUI-YOLO;
+RUN git clone https://github.com/BadCafeCode/masquerade-nodes-comfyui.git custom-nodes/masquerade-nodes-comfyui;
+RUN git clone https://github.com/sipherxyz/comfyui-art-venture.git custom-nodes/comfyui-art-venture;
+RUN git clone https://github.com/twri/sdxl_prompt_styler.git custom-nodes/sdxl_prompt_styler;
+RUN git clone https://github.com/hylarucoder/ComfyUI-Eagle-PNGInfo.git custom-nodes/ComfyUI-Eagle-PNGInfo;
+RUN wget -O models/loras/mantra_alias.safetensors https://raw.githubusercontent.com/billyberkouwer/temp/main/mantra_alias.safetensors;
+RUN wget -O models/vae_approx/taesd_decoder.pth https://raw.githubusercontent.com/billyberkouwer/temp/main/taesd_decoder.pth;
+RUN wget -O models/vae_approx/taesd_encoder.pth https://raw.githubusercontent.com/billyberkouwer/temp/main/taesd_encoder.pth;
+RUN wget -O models/vae/taesd_decoder.safetensors https://huggingface.co/madebyollin/taesdxl/resolve/main/taesdxl_decoder.safetensors?download=true;
+RUN wget -O models/vae/taesd_encoder.safetensors https://huggingface.co/madebyollin/taesdxl/resolve/main/taesdxl_encoder.safetensors?download=true;
+
 # Stage 3: Final image
 FROM base as final
 
